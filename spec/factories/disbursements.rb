@@ -1,8 +1,7 @@
-# FactoryBot.define do
-#   factory :disbursement do
-#     merchant { nil }
-#     amount { "" }
-#     amount { "" }
-#     date { "2022-06-11" }
-#   end
-# end
+FactoryBot.define do
+  factory :disbursement do
+    association :merchant, factory: :rowe
+    amount { 100 }
+    date { DateTime.now }
+  end
+end
