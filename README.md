@@ -98,9 +98,13 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
   rails db:migrate
   rails db:seed
   ```
-* ## How to run the test suite
+* ## Test suite
+  RSpec
+  Factory Bot
+  Faker
+  Shoulda Matchers
 
-
+  ### Run battery of tests
   ```
   bundle exec rspec
   ```
@@ -127,7 +131,6 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
   In a rails console you can generate some examples of disbursements like this:
 
-
   ```
   rails c
   ```
@@ -149,7 +152,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
   rails s
   ```
 
-# Rails Stats
+# Rails stats
 
 ```
 +----------------------+--------+--------+---------+---------+-----+-------+
