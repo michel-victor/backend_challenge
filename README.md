@@ -127,6 +127,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
   In a rails console you can generate some examples of disbursements like this:
 
+
   ```
   rails c
   ```
@@ -150,6 +151,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
 # Rails Stats
 
+```
 +----------------------+--------+--------+---------+---------+-----+-------+
 | Name                 |  Lines |    LOC | Classes | Methods | M/C | LOC/M |
 +----------------------+--------+--------+---------+---------+-----+-------+
@@ -171,3 +173,4 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 | Total                |    457 |    344 |      20 |       9 |   0 |    36 |
 +----------------------+--------+--------+---------+---------+-----+-------+
 Code LOC: 117     Test LOC: 227     Code to Test Ratio: 1:1.9
+```
