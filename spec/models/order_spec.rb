@@ -28,15 +28,15 @@ describe Order do
 
   describe 'discount amount fees' do
     it 'under 50' do
-      expect(build(:order, :under_50).disbursement_amount).to eq(48.16)
+      expect(build(:order, :under_50).disbursement_amount.round(4)).to eq(48.1635)
     end
 
     it 'under between_50_300' do
-      expect(build(:order, :between_50_300).disbursement_amount).to eq(104.79)
+      expect(build(:order, :between_50_300).disbursement_amount.round(4)).to eq(104.7949)
     end
 
     it 'over 300' do
-      expect(build(:order, :over_300).disbursement_amount).to eq(412.66)
+      expect(build(:order, :over_300).disbursement_amount.round(4)).to eq(412.6623)
     end
   end
 end

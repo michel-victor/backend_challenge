@@ -23,8 +23,8 @@ describe Merchant do
 
   describe 'merchant disburse' do
     before do
-      merchant = create :rowe
-      shopper = create :vickey
+      merchant = create :merchant
+      shopper = create :shopper
       create :order, :completed, :under_50, merchant: merchant, shopper: shopper
       create :order, :completed, :between_50_300, merchant: merchant, shopper: shopper
       create :order, :completed, :over_300, merchant: merchant, shopper: shopper
@@ -33,6 +33,31 @@ describe Merchant do
     context 'given a week in' do
       it 'number off week and year' do
         Merchant.first.disburse Date.current.cweek, Date.current.year
+        expect(Disbursement.first.amount.to_f).to eq(565.62)
+      end
+
+      it 'object date' do
+        Merchant.first.disburse Date.current
+        expect(Disbursement.first.amount.to_f).to eq(565.62)
+      end
+
+      it 'string date in yyyy-mm-dd format' do
+        Merchant.first.disburse "#{Date.current.year}-#{Date.current.month}-#{Date.current.day}"
+        expect(Disbursement.first.amount.to_f).to eq(565.62)
+      end
+
+      it 'string date in yyyy/mm/dd format' do
+        Merchant.first.disburse "#{Date.current.year}/#{Date.current.month}/#{Date.current.day}"
+        expect(Disbursement.first.amount.to_f).to eq(565.62)
+      end
+
+      it 'string date in dd-mm-yyyy format' do
+        Merchant.first.disburse "#{Date.current.day}-#{Date.current.month}-#{Date.current.year}"
+        expect(Disbursement.first.amount.to_f).to eq(565.62)
+      end
+
+      it 'string date in dd/mm/yyyy format' do
+        Merchant.first.disburse "#{Date.current.day}/#{Date.current.month}/#{Date.current.year}"
         expect(Disbursement.first.amount.to_f).to eq(565.62)
       end
     end
