@@ -6,7 +6,8 @@ class Merchant < ApplicationRecord
 
   has_many :disbursements, dependent: :destroy
 
-  validates :name, :email, :cif, presence: true
+  validates :name, :email, presence: true
+  validates :cif, presence: true, uniqueness: { case_sensitive: false }
 
   # Calculate and persist disbursements for a merchant in a week given a date or number of week and optional year
   def disburse(date_or_week_number, year = Date.current.year)
