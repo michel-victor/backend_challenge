@@ -10,6 +10,7 @@ describe Shopper do
       it { expect validate_presence_of(:name) }
       it { expect validate_presence_of(:email) }
       it { expect validate_presence_of(:nif) }
+      it { expect validate_uniqueness_of(:nif).case_insensitive }
 
       it 'returns shopper' do
         expect(Shopper.first.name).to eq('Vickey')

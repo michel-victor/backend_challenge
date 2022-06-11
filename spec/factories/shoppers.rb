@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :shopper do
+    name { 'Vickey' }
+    email { 'vickey@not_gmail.com' }
+    nif { '411111111Z' }
+  end
+
   factory :vickey, class: Shopper do
     name { 'Vickey' }
     email { 'vickey@not_gmail.com' }
