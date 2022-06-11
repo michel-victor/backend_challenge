@@ -5,7 +5,7 @@ describe Shopper do
     context 'with all attributes' do
       before { create :vickey }
 
-      it { expect have_many(:orders) }
+      it { expect have_many(:orders).dependent(:destroy) }
       it { expect have_many(:merchants).through(:orders) }
       it { expect validate_presence_of(:name) }
       it { expect validate_presence_of(:email) }

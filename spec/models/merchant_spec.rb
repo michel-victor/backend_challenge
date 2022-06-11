@@ -5,9 +5,9 @@ describe Merchant do
     context 'with all attributes' do
       before { create :rowe }
 
-      it { expect have_many(:orders) }
+      it { expect have_many(:orders).dependent(:destroy) }
       it { expect have_many(:merchants).through(:orders) }
-      it { expect have_many(:disbursements) }
+      it { expect have_many(:disbursements).dependent(:destroy) }
       it { expect validate_presence_of(:name) }
       it { expect validate_presence_of(:email) }
       it { expect validate_presence_of(:cif) }
