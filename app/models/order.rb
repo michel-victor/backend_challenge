@@ -7,7 +7,7 @@ class Order < ApplicationRecord
 
   validates :amount, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
-  def amount_with_fee
+  def disbursement_amount
     case amount
     when 0...50
       (amount - 0.01 * amount).round(2)
