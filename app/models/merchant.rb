@@ -21,6 +21,6 @@ class Merchant < ApplicationRecord
     amount = orders.completed.where(completed_at: week_date_range).sum &:disbursement_amount
 
     # Persist disbursement amount for a merchant in a week.
-    disturments.create! amount: amount, date: week_date_range.first
+    disbursements.create! amount: amount, date: week_date_range.first
   end
 end

@@ -10,11 +10,11 @@ class Order < ApplicationRecord
   def disbursement_amount
     case amount
     when 0...50
-      (amount - 0.01 * amount).round(2)
+      (amount - 0.01 * amount)
     when 50..300
-      (amount - 0.0095 * amount).round(2)
+      (amount - 0.0095 * amount)
     when proc { |n| n > 300 }
-      (amount - 0.0085 * amount).round(2)
+      (amount - 0.0085 * amount)
     end
   end
 end
