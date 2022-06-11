@@ -1,10 +1,10 @@
 class Merchant < ApplicationRecord
   include DateHelpers
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
   has_many :shoppers, through: :orders
 
-  has_many :disbursements
+  has_many :disbursements, dependent: :destroy
 
   validates :name, :email, :cif, presence: true
 
