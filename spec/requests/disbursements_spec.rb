@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Disbursements', type: :request do
+describe 'Disbursements request', type: :request do
   describe 'search disbursements (GET /disbursements)' do
     before do
       rowe = create :rowe
@@ -19,7 +19,7 @@ describe 'Disbursements', type: :request do
       before do
         get api_v1_disbursements_path
       end
-      
+
       it 'URL work correctly' do
         expect(response).to have_http_status(200)
       end

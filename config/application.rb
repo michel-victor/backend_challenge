@@ -21,6 +21,14 @@ Bundler.require(*Rails.groups)
 
 module BackendChallenge
   class Application < Rails::Application
+    # Session middleware for run web in only API application. For Sidekiq web interface.
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use config.session_store, config.session_options
+
+    # ActiveJob with Sidekiq
+    config.active_job.queue_adapter = :sidekiq
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 

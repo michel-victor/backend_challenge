@@ -80,6 +80,10 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
   `.ruby-version: 3.0.2`
   `.ruby-gemset: backend_challenge`
+* ## Dependencies
+
+  Sidekiq (for background jobs)
+  Redis (for sidekiq web interface)
 * ## Database creation
 
   Actually using SQLITE.
@@ -99,18 +103,47 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
   rails db:seed
   ```
 * ## Test suite
+
   RSpec
   Factory Bot
   Faker
   Shoulda Matchers
 
   ### Run battery of tests
+
+
   ```
   bundle exec rspec
   ```
-* ## Services (job queues, cache servers, search engines, etc.)
+* ## Services (job queues, cache servers, engines)
 
-  merchants_disburse every mondays
+  A new rake task has been created to run all the jobs on Sidekiq (jobs:run).
+
+
+  ### Run redis
+
+
+  ```
+  redis-server
+  ```
+
+  ### Run sidekiq
+
+  ```
+  sidekiq
+  ```
+
+  ### Run MerchantsDisburseJob every mondays on Sidekiq
+
+  ```
+  rake jobs:run
+  ```
+
+  ### View sidekiq web for admin jobs
+
+  ```
+  http://localhost:3000/jobs
+  ```
 * ## API
 
   `http://localhost:3000/api/v1/disbursements`
@@ -121,7 +154,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
   `http://localhost:3000/api/v1/disbursements?merchant={merchant_id}&week={integer(1..last_year_week).year | yyyy-mm-dd | dd-mm-yyyy | dd/mm/yyyy | yyyy/mm/dd}`
 
-  ### Example:
+  ### Example
 
   `http://localhost:3000/api/v1/disbursements?week=12.2018`
   `http://localhost:3000/api/v1/disbursements?week=20-03-2018`
@@ -130,6 +163,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 * ## Deployment instructions
 
   In a rails console you can generate some examples of disbursements like this:
+
 
   ```
   rails c
@@ -140,13 +174,13 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
   {merchant_object}.disburse({date : object | string_format})
   ```
 
-  ### Example:
+  ### Example
 
   `Merchant.last.disburse(14, 2018) `
   `Merchant.last.disburse(Date.new(2018, 3, 20))`
   `Merchant.last.disburse('2018-03-20')`
 
-  ## Run rails server:
+  ## Run rails server
 
   ```
   rails s

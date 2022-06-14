@@ -15,11 +15,11 @@ class Merchant < ApplicationRecord
     week = date_or_week_number.to_i rescue nil
     year = year.to_i rescue nil
 
-    # Generate and validate week date range
-    week_date_range = Merchant.week_date_range date, week, year
+    # Generate and validate week date range (implemented in a concern).
+    week_date_range = Merchant.week_date_range(date, week, year)
 
-    # Get merchant orders completed between week date range and sum amounts with fee
-    amount = orders.completed.where(completed_at: week_date_range).sum &:disbursement_amount
+    # Get merchant orders completed between week date range and sum amounts with fee.
+    amount = orders.completed.where(completed_at: week_date_range).sum(&:disbursement_amount)
 
     # Persist disbursement amount for a merchant in a week.
     disbursements.create! amount: amount, date: week_date_range.first
