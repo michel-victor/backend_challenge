@@ -122,7 +122,6 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 
   ### Run redis
 
-
   ```
   redis-server
   ```
@@ -139,7 +138,7 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
   rake jobs:run
   ```
 
-  ### View sidekiq web for admin jobs
+  ### Engine Sidekiq::Web '/jobs' for admin jobs
 
   ```
   http://localhost:3000/jobs
@@ -193,21 +192,23 @@ ID | MERCHANT ID | SHOPPER ID | AMOUNT | CREATED AT           | COMPLETED AT
 | Name                 |  Lines |    LOC | Classes | Methods | M/C | LOC/M |
 +----------------------+--------+--------+---------+---------+-----+-------+
 | Controllers          |     19 |     16 |       3 |       2 |   0 |     6 |
-| Jobs                 |     18 |      9 |       2 |       1 |   0 |     7 |
+| Jobs                 |     19 |     10 |       2 |       1 |   0 |     8 |
 | Models               |    107 |     80 |       5 |       5 |   1 |    14 |
 | Mailers              |      4 |      4 |       1 |       0 |   0 |     0 |
 | Channels             |      8 |      8 |       2 |       0 |   0 |     0 |
-| Libraries            |      0 |      0 |       0 |       0 |   0 |     0 |
+| Libraries            |     26 |     22 |       0 |       0 |   0 |     0 |
 | Controller tests     |      8 |      7 |       1 |       1 |   1 |     5 |
 | Model tests          |     28 |     12 |       4 |       0 |   0 |     0 |
 | Mailer tests         |      0 |      0 |       0 |       0 |   0 |     0 |
 | Channel tests        |     11 |      3 |       1 |       0 |   0 |     0 |
 | Job tests            |      7 |      3 |       1 |       0 |   0 |     0 |
 | Integration tests    |      0 |      0 |       0 |       0 |   0 |     0 |
+| Controller specs     |     10 |      9 |       0 |       0 |   0 |     0 |
+| Job specs            |     10 |      9 |       0 |       0 |   0 |     0 |
 | Model specs          |    150 |    126 |       0 |       0 |   0 |     0 |
 | Request specs        |     97 |     76 |       0 |       0 |   0 |     0 |
 +----------------------+--------+--------+---------+---------+-----+-------+
-| Total                |    457 |    344 |      20 |       9 |   0 |    36 |
+| Total                |    504 |    385 |      20 |       9 |   0 |    40 |
 +----------------------+--------+--------+---------+---------+-----+-------+
-Code LOC: 117     Test LOC: 227     Code to Test Ratio: 1:1.9
+  Code LOC: 140     Test LOC: 245     Code to Test Ratio: 1:1.8
 ```

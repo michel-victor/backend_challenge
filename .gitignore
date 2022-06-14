@@ -33,11 +33,11 @@
 # Ignore database config file
 # config/database.yml
 
-# VSCode
+# Ignore VSCode file
 .vscode
 
 # Ignore MacOS files
 .DS_Store
 
-# Redis dump
+# Ignore Redis dump file
 dump.rdb
