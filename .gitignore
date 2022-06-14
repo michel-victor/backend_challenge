@@ -38,3 +38,6 @@
 
 # Ignore MacOS files
 .DS_Store
+
+# Redis dump
+dump.rdb
