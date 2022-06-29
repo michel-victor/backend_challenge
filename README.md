@@ -2,11 +2,11 @@
 
 # Backend coding challenge
 
-This is the coding challenge for people who applied to a backend developer position at SeQura. It's been designed to be a simplified version of the same problems we deal with.
+This is the coding challenge for people who applied to a backend developer position at The Company. It's been designed to be a simplified version of the same problems we deal with.
 
 ## The challenge
 
-SeQura provides ecommerce shops (merchants) a flexible payment method so their customers (shoppers) can purchase and receive goods without paying upfront. SeQura earns a small fee per purchase and pays out (disburse) the merchant once the order is marked as completed.
+The Company provides ecommerce shops (merchants) a flexible payment method so their customers (shoppers) can purchase and receive goods without paying upfront. The Company earns a small fee per purchase and pays out (disburse) the merchant once the order is marked as completed.
 
 The operations manager is now asking you to make a system to calculate how much money should be disbursed to each merchant based on the following rules:
 
